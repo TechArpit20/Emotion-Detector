@@ -1,0 +1,174 @@
+<ngb-alert class="top-error" *ngIf="errMessage.length != 0" type="danger">{{
+  errMessage
+}}</ngb-alert>
+<app-spinner *ngIf="loading | async"></app-spinner>
+
+<div class="topnav">
+  <img class="top-logo img-fluid" src="assets/logo.png" alt="logo" />
+  <span class="name"> EMOTION DETECTOR </span>
+</div>
+
+<div class="main">
+  <div class="leftDiv">
+    <img class="logo" src="assets/logo.png" alt="image" />
+    <span class="name"> EMOTION DETECTOR </span>
+    <span class="desc"> Take Detection to the next level..... </span>
+  </div>
+  <div class="right">
+    <div class="signup">Sign Up {{ errMessage }}</div>
+    <div class="line1">Enter Details Mentioned Below</div>
+    <form [formGroup]="SignUpUserData" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Full Name"
+          required
+          formControlName="name"
+          [ngClass]="
+            SignUpUserData.get('name')?.errors &&
+            SignUpUserData.get('name')?.touched
+              ? 'is-invalid'
+              : ''
+          "
+        />
+        <div
+          *ngIf="
+            SignUpUserData.get('name')?.touched &&
+            SignUpUserData.get('name')?.invalid
+          "
+          class="invalid-feedback"
+        >
+          Name is required with minimum length of 4 characters!!!
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Enter Email"
+          required
+          formControlName="email"
+          [ngClass]="
+            SignUpUserData.get('email')?.errors &&
+            SignUpUserData.get('email')?.touched
+              ? 'is-invalid'
+              : ''
+          "
+        />
+        <div
+          *ngIf="
+            SignUpUserData.get('name')?.touched &&
+            SignUpUserData.get('name')?.invalid
+          "
+          class="invalid-feedback"
+        >
+          Enter a valid Email ID
+        </div>
+        <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">User Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter User Name"
+          required
+          formControlName="username"
+          [ngClass]="
+            SignUpUserData.get('username')?.errors &&
+            SignUpUserData.get('username')?.touched
+              ? 'is-invalid'
+              : ''
+          "
+        />
+        <div
+          *ngIf="
+            SignUpUserData.get('username')?.touched &&
+            SignUpUserData.get('username')?.invalid
+          "
+          class="invalid-feedback"
+        >
+          Username is required!!!
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Enter Password"
+          required
+          formControlName="password"
+          [ngClass]="
+            SignUpUserData.get('password')?.errors &&
+            SignUpUserData.get('password')?.touched
+              ? 'is-invalid'
+              : ''
+          "
+        />
+        <div
+          *ngIf="
+            SignUpUserData.get('password')?.touched &&
+            SignUpUserData.get('password')?.invalid
+          "
+          class="invalid-feedback"
+        >
+          Password is required with minimum length of 8 characters!!!
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Re-enter Password"
+          required
+          formControlName="confirm_password"
+          [ngClass]="
+            SignUpUserData.get('confirm_password')?.errors &&
+            SignUpUserData.get('confirm_password')?.touched
+              ? 'is-invalid'
+              : ''
+          "
+        />
+        <div
+          *ngIf="
+            SignUpUserData.get('confirm_password')?.touched &&
+            SignUpUserData.get('confirm_password')?.hasError('confirm_password')
+          "
+          class="invalid-feedback"
+        >
+          Password does not match!!!
+        </div>
+      </div>
+      <div class="mb-3 form-check">
+        <input
+          type="checkbox"
+          (change)="changeTerms()"
+          class="form-check-input"
+        />
+        <label class="form-check-label" style="color: #526486">
+          I agree to terms and conditions by signing up</label
+        >
+      </div>
+      <button
+        type="submit"
+        class="btn btn-warning"
+        [disabled]="SignUpUserData.invalid || !agreeTerms"
+      >
+        Let's go
+      </button>
+      <div class="mb-3">
+        <div class="line">
+          Already have an account?<a href="#" style="color: black">Log in</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

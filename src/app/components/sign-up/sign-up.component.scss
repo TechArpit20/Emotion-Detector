@@ -1,0 +1,155 @@
+.top-error{
+    position: absolute;
+    width: 100%;
+  }
+  .main {
+    display: flex;
+  }
+  .topnav {
+    background-color: #0a0f2b;
+    display: none;
+    .top-logo {
+      width: 70%;
+    }
+  }
+  .bg-image {
+    background-color: #0a0f2b;
+  }
+  .leftDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0a0f2b;
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+  
+    .logo {
+      // width: 179.46px;
+      // height: 60px;
+      max-width: 100%;
+      align-self: center;
+      top: 0;
+      margin-top: 30px;
+      // margin-left: 10%;
+    }
+    .name{
+        color: white;
+        font-size: 2.5em;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 30px;
+        text-transform: capitalize;
+        
+    }
+  
+    .desc{
+        color: white;
+        font-size: 2em;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .image {
+      max-width: 100%;
+      margin-top: 20%;
+    }
+    .logo2 {
+      width: 55%;
+      margin-top: 10%;
+    }
+  }
+  
+  .right {
+    width: 50%;
+    margin-left: 50%;
+    margin-bottom: 80px;
+  
+    .signup {
+      font-family: "DM Sans";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 2.5rem;
+      padding-left: 15%;
+      margin-top: 15%;
+      color: #0f1e3a;
+    }
+    form {
+      padding-left: 15%;
+    }
+    .form-label {
+      color: #797f99;
+    }
+    .form-control {
+      width: 60%;
+      height: 52px;
+    }
+    .form-select{
+      width: 60%;
+      height: 52px;
+    }
+    .btn {
+      width: 60%;
+      height: 52px;
+    }
+    .form-check-label {
+      padding-left: 2%;
+      width: 60%;
+    }
+    .line {
+      margin-top: 3%;
+    }
+    .line1 {
+      margin-left: 15%;
+      margin-bottom: 5%;
+      color: #797f99;
+    }
+    .err {
+      width: 60%;
+      color: #797f99;
+    }
+    #emailHelp {
+      word-wrap: break-word;
+      width: 60%;
+    }
+    .btn {
+      color: #0a0f2a;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .main {
+      flex-direction: column;
+    }
+    .topnav {
+        display: flex;
+        width: 100%;
+        // margin-left: -3%;
+    
+        .top-logo{
+            width: 10%;
+            margin-left: 5%;
+        }
+    
+        .name{
+            color: white;
+            font-size: 20px;
+            align-self: center;
+            margin-left: 30px;
+            font-weight: 500;
+        }
+      }
+    .leftDiv{
+        display: none;
+    }
+  
+
+    .left {
+      display: none;
+    }
+    .right {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  
