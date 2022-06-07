@@ -23,7 +23,7 @@ export class AuthGuardGuard implements CanActivate {
       this.router.navigate(['/login']);
       return false;
     }
-    if (localStorage.getItem('role') === 'HR') {
+    if (localStorage.length>2) {
       return this.auth.isLoggedIn();
     }
     return false;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SignUp, SignUpOutput } from 'src/app/models/signup.model';
+import { LoginOutput } from 'src/app/models/signup.model';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { CustomValidators } from 'src/app/services/custom-validator/custom-validator.service';
@@ -14,7 +14,6 @@ import { SpinnerService } from 'src/app/services/spinner/spinner.service';
 })
 export class SignUpComponent implements OnInit {
   isShow = false;
-  role = '';
   agreeTerms = false;
   errMessage = '';
   loading = this.spinner.getLoader;
@@ -62,57 +61,27 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  get f() {
-    return this.SignUpUserData.controls;
-  }
-
-
-
   submit() {
     const data: any = this.SignUpUserData.value;
-    // data.skills = data.skills?.split(',')
-    if (data.role === 'Subject Expert') {
-      data.skills = data.skills.split(',');
-    } else {
-      data.skills = null;
-    }
     this.apiService.signup(data).subscribe(
-      (res: SignUpOutput) => {
+      (res: LoginOutput) => {
         this.errMessage = '';
         this.authService.login({
           id: res.id,
           name: data.name,
           username: data.username,
-          role: data.role,
         });
-        if (data.role === 'HR') {
-          this.route.navigate(['/user/dashboard']);
-        } else {
-          this.route.navigate(['/expert/expert-dashboard']);
-        }
+        this.route.navigate(['/user/dashboard']);
       },
       (err) => {
         try {
           this.errMessage = err.error.error;
         } catch {
-          this.errMessage = 'Please mention maximum 5 skills only';
+          this.errMessage = 'Something went wrong!!!';
         }
       }
     );
   }
-  toggleDisplay(event: any) {
-    if (event.target.value === 'Subject Expert') {
-      this.isShow = true;
-    } else {
-      this.isShow = false;
-    }
-  }
 
-  changeRole(role: string) {
-    if (role === 'HR') {
-      this.role = 'HR';
-    } else {
-      this.role = 'EXPERT';
-    }
-  }
+
 }

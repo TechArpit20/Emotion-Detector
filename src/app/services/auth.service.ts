@@ -28,12 +28,11 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
-  login(result:{"id":string,"name":string,"username":string,"role":string}) {
+  login(result:{"id":string,"name":string,"username":string}) {
     this.setToken('asderghjuytrewqasxcvbnmklpoiuyt');
     localStorage.setItem('id', result.id);
     localStorage.setItem('name', result.name);
     localStorage.setItem('username', result.username);
-    localStorage.setItem('role',result.role);
   }
 
  

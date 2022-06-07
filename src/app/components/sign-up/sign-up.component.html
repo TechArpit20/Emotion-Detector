@@ -160,7 +160,7 @@
       <button
         type="submit"
         class="btn btn-warning"
-        [disabled]="SignUpUserData.invalid || !agreeTerms"
+        [disabled]="SignUpUserData.invalid && !agreeTerms"
       >
         Let's go
       </button>

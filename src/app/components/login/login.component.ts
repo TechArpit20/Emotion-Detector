@@ -32,11 +32,12 @@ export class LoginComponent implements OnInit {
   submit(){
     this.apiService.login(this.form.value).subscribe((res:LoginOutput)=>{
       this.errMessage=""
-      // this.authService.login({"id":res.id,"name":res.name,"username":res.username,"role":res.role.toString()});
-      this.route.navigate(["/dashboard"])
+      this.authService.login({"id":res.id,"name":res.name,"username":res.username});
+      this.route.navigate(["/user/dashboard"])
     },
     (err)=>{
-      this.errMessage=err;
+      console.log(err)
+      this.errMessage=err.error.error;
       // console.log(err)
     }
     )

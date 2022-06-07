@@ -1,4 +1,3 @@
-import { Role } from "./roles.module";
 
 export class SignUp{
     name!: string;
@@ -9,15 +8,7 @@ export class SignUp{
     skills!: any;
 }
 
-export class SignUpOutput{
-    id!: string;
-    name!: string;
-    username!: string;
-    email!: string;
-    password!: string;
-    role!: string;
-    skills!: any;
-}
+
 
 export class Login{
     email!: string;
@@ -28,7 +19,7 @@ export class LoginOutput{
     id!: string;
     name!: string;
     username!: string;
-    role!: Role | string;
+    email!: string
 }
 
 export class ForgotPass{

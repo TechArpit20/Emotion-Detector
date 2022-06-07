@@ -14,6 +14,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SpinnerInterceptor } from './interceptors/spinner/spinner.interceptor';
+import { ConversationComponent } from './components/conversation/conversation.component';
+import { HeadnavComponent } from './components/headnav/headnav.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { SpinnerInterceptor } from './interceptors/spinner/spinner.interceptor';
     LoginComponent,
     SignUpComponent,
     SpinnerComponent,
-    DashboardComponent
+    DashboardComponent,
+    ConversationComponent,
+    HeadnavComponent
   ],
   imports: [
     BrowserModule,

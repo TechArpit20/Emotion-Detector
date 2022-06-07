@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  URI: 'https://fakestoreapi.com/productss'
+  URI: 'http://localhost:8000'
 };
 
 /*
