@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { ForgotPass, Login, LoginOutput, Output, SignUp } from '../models/signup.model'
+import { ForgotPass, InputTextData, Login, LoginOutput, OutputData, SignUp } from '../models/signup.model'
 import { Observable } from 'rxjs';
 // import { AllExperts, CreateRecruitmentInput, Recruitment } from 'src/app/models/create-recruitment.model';
 // import { CompletedProcessCandidates, UnderProcessCandidates } from 'src/app/models/Candidate.model';
@@ -21,6 +21,10 @@ export class ApiService {
 
   signup(data:SignUp):Observable<LoginOutput>{
     return this.http.post<LoginOutput>(environment.URI+"/signup",data)
+  }
+
+  textemotions(data: InputTextData): Observable<OutputData>{
+    return this.http.post<OutputData>(environment.URI+"/text",data)
   }
 
   addRecruitment(data:any){

@@ -12,4 +12,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public navigateToSection(section: string) {
+    window.location.hash = '';
+    window.location.hash = section;
+}
+
 }

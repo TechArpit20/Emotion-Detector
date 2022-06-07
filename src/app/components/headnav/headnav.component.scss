@@ -1,11 +1,15 @@
 .navbar {
-    color: red;
   .container-fluid {
-    .navbar-brand {
-      .logo {
-        width: 10%;
-        // height: 53px;
-      }
+    a {
+        display: flex;
     }
   }
+}
+
+.sign-out{
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+}
+.sign-out:hover{
+  color: white;
 }

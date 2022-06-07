@@ -27,6 +27,10 @@ export class ForgotPass{
     password!: string;
 }
 
-export class Output{
+export class OutputData{
     message!: string;
+}
+
+export class InputTextData{
+    sentence!: string
 }
