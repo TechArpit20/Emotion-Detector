@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  URI: 'techarpit'
+  URI: 'http://localhost:8000'
 };

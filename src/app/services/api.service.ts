@@ -27,18 +27,10 @@ export class ApiService {
     return this.http.post<OutputData>(environment.URI+"/text",data)
   }
 
-  addRecruitment(data:any){
-    const result=new FormData()
-    result.append("name",data.name);
-    result.append("category",data.category);
-    result.append("skills",data.skills)
-    result.append("start_date",data.start_date.toString())
-    result.append("end_date",data.end_date.toString())
-    result.append("expert",data.expert)
-    result.append("resume",data.resume);
-    result.append("created_by",localStorage.getItem("id") || "1")
-
-    return this.http.post(environment.URI+"/createRecruitment/",result);
+  imageDetect(){
+    const result={"data":"hello"}
+    // result.append("image",data.image);
+    return this.http.post(environment.URI+"/image",result);
   }
 
   
